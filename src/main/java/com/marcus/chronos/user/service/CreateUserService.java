@@ -26,4 +26,8 @@ public class CreateUserService {
         User newUser = new User(request.name(), request.password(), role);
         repository.save(newUser);
     }
+
+    public void createAdmin( CreateUserRequest request) {
+        this.create(request, UserRole.ADMIN);
+    }
 }

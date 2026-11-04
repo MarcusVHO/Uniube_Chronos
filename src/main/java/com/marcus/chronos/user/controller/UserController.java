@@ -22,7 +22,23 @@ public class UserController {
     public ResponseEntity<Void> createUserEstudante(
             @Valid @RequestBody CreateUserRequest request
     ) {
+        createUserService.createEstudante(request);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/docente")
+    public ResponseEntity<Void> createUserDocente(
+            @Valid @RequestBody CreateUserRequest request
+    ) {
         createUserService.createDocente(request);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/docente")
+    public ResponseEntity<Void> createUserAdmin(
+            @Valid @RequestBody CreateUserRequest request
+    ) {
+        createUserService.createAdmin(request);
+        return ResponseEntity.noContent().build();
     }
 }
